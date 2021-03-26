@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="D:\Proyectos\Nodejs\SonarQubeExpress\test\index.test.js">
+        <testCase name="TEST ENDPOINTS [GET]" duration="37"/>
+        <testCase name="TEST ENDPOINTS [POST]" duration="26"/>
+        <testCase name="TEST ENDPOINTS [GET] apitest return mock data" duration="37"/>
+    </file>
+</testExecutions>
