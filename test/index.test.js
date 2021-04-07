@@ -105,6 +105,39 @@ describe('TEST ENDPOINTS', () => {
         done();
     });
 
+    it('[GET] api test mysql params', async(done) => {
+        const results = [{
+            "login_id": 1,
+            "provider_name": "repairs",
+            "created_date": "2021-02-07T23:51:02.000Z",
+            "modified_date": null,
+            "enabled": 1
+        }]
+        mysqlMock.expects('query').withArgs('select * from owner_provider where login_id = ? and provider_name= ?;')
+            .callsArgWith(2, null, results);
+        const response = await request(server).get('/owner_provider' + '/1/repairs');
+        expect(response.statusCode).toEqual(200);
+        done();
+    });
+
+    it('[DELETE] api test mysql delete', async(done) => {
+        const results = {
+            "fieldCount": 0,
+            "affectedRows": 1,
+            "insertId": 0,
+            "serverStatus": 2,
+            "warningCount": 0,
+            "message": "",
+            "protocol41": true,
+            "changedRows": 0
+        }
+        mysqlMock.expects('query').withArgs("delete from customer_condition where customer_condition_id = ?;")
+            .callsArgWith(2, null, results);
+        const response = await request(server).delete('/owner_provider' + '/3')
+        expect(response.statusCode).toEqual(200);
+        expect(response.body.ok).toBeTruthy();
+        done();
+    });
 
 })
 afterAll(async done => {

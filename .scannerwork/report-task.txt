@@ -1,6 +1,6 @@
-projectKey=SonarQubeExpress
+projectKey=sonarqubeexpress
 serverUrl=http://localhost:9000
 serverVersion=8.7.1.42226
-dashboardUrl=http://localhost:9000/dashboard?id=SonarQubeExpress
-ceTaskId=AXhrfZXgOR9J9Ijyt7bx
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXhrfZXgOR9J9Ijyt7bx
+dashboardUrl=http://localhost:9000/dashboard?id=sonarqubeexpress
+ceTaskId=AXiqyOByJ_W_Op66iQ-P
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXiqyOByJ_W_Op66iQ-P
