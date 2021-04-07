@@ -2,6 +2,7 @@ const sonarqubeScanner = require('sonarqube-scanner');
 sonarqubeScanner({
     serverUrl: 'http://localhost:9000',
     options: {
+        'sonar.branch': 'feature/unittest',
         'sonar.login': 'admin',
         'sonar.password': 'admin',
         'sonar.sources': 'src',
