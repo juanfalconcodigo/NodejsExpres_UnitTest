@@ -3,7 +3,12 @@ const nock = require('nock');
 const server = require('../src/index');
 const sinon = require('sinon');
 const { connection } = require('../src/db')
-const { users, user } = require('./mocks/users/users.model.mock')
+const { users, user } = require('./mocks/users/users.model.mock');
+const dao = require('../src/dao');
+
+beforeAll(() => {
+    process.env = Object.assign(process.env, { NODE_ICU_DATA: 'node_modules/full-icu' });
+});
 describe('TEST ENDPOINTS', () => {
     let mysqlConnection;
     let mysqlMock;
@@ -11,6 +16,7 @@ describe('TEST ENDPOINTS', () => {
         jest.clearAllMocks();
         mysqlConnection = connection;
         mysqlMock = sinon.mock(mysqlConnection);
+        jest.setTimeout(10000);
     });
     afterEach(function() {
         mysqlMock.restore()
@@ -19,6 +25,7 @@ describe('TEST ENDPOINTS', () => {
     it('[GET]', async(done) => {
         const response = await request(server).get('/users');
         expect(response.body.ok).toBeTruthy();
+        console.log(process.env.NODE_ICU_DATA, 'gaaaaaaaaaaaaaaaaaa')
         done();
     });
 
@@ -35,15 +42,19 @@ describe('TEST ENDPOINTS', () => {
 
 
     it('[GET] apitest return mock data', async() => {
-
-        nock("https://jsonplaceholder.typicode.com")
-            .get('/todos/1')
-            .reply(200, {
-                "userId": 100,
-                "id": 100,
-                "title": "test response",
+        jest.spyOn(dao, 'getUsersApiTest').mockImplementation(() => [{
+                "userId": 1,
+                "id": 3,
+                "title": "fugiat veniam minus",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 4,
+                "title": "et porro tempora",
                 "completed": true
-            });
+            }
+        ]);
         const res = await request(server).get('/apitest')
         expect(res.statusCode).toEqual(200);
         expect(res.body.ok).toBeTruthy();

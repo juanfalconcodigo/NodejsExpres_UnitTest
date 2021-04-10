@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
     <file path="D:\Proyectos\Nodejs\SonarQubeExpress\test\index.test.js">
-        <testCase name="TEST ENDPOINTS [GET]" duration="106"/>
-        <testCase name="TEST ENDPOINTS [POST]" duration="57"/>
-        <testCase name="TEST ENDPOINTS [GET] apitest return mock data" duration="80"/>
-        <testCase name="TEST ENDPOINTS [GET] api test mysql" duration="45"/>
-        <testCase name="TEST ENDPOINTS [POST] api test mysql" duration="15"/>
-        <testCase name="TEST ENDPOINTS [GET] api test mysql params" duration="19"/>
-        <testCase name="TEST ENDPOINTS [DELETE] api test mysql delete" duration="19"/>
+        <testCase name="TEST ENDPOINTS [GET]" duration="136"/>
+        <testCase name="TEST ENDPOINTS [POST]" duration="37"/>
+        <testCase name="TEST ENDPOINTS [GET] apitest return mock data" duration="6665"/>
+        <testCase name="TEST ENDPOINTS [GET] api test mysql" duration="40"/>
+        <testCase name="TEST ENDPOINTS [POST] api test mysql" duration="21"/>
+        <testCase name="TEST ENDPOINTS [GET] api test mysql params" duration="11"/>
+        <testCase name="TEST ENDPOINTS [DELETE] api test mysql delete" duration="12"/>
     </file>
 </testExecutions>

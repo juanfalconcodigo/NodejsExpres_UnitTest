@@ -1,6 +1,7 @@
-const axios = require('axios');
 const { connection } = require('./db');
 const { uuid } = require('uuidv4');
+const { getUsersApiTest } = require('./dao');
+
 let users = [{
         id: 1,
         name: 'JUAN',
@@ -59,13 +60,11 @@ exports.deleteUsers = async(req, res) => {
 }
 
 exports.apiTests = async(req, res) => {
-    let user = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-    user = user.data
+    let users = await getUsersApiTest();
     return res.status(200).json({
         ok: true,
-        user
-    })
-
+        users
+    });
 }
 
 exports.getProviders = async(req, res) => {

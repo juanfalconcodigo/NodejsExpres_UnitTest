@@ -1,3 +1,4 @@
+/* const newrelic = require('newrelic'); */
 const express = require('express');
 const app = express();
 const { getUsers, postUsers, deleteUsers, apiTests, getProviders, postProviders, putProviders, deleteProviders, getProvidersId } = require('./controllers');
@@ -20,7 +21,7 @@ app.delete('/owner_provider/:customer_condition_id', deleteProviders);
 app.get('/owner_provider/:login_id/:provider_name', getProvidersId);
 
 
-/* let server = app.listen(port, () => {
+let server = app.listen(port, () => {
     console.log(`Application running on ${port}`);
-}); */
+});
 module.exports = app;
